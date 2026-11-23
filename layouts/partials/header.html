@@ -1,0 +1,11 @@
+<header class="site-header">
+  <a class="brand" href="{{ `/` | relURL }}">
+    <span class="brand-title">{{ site.Title }}</span>
+    {{ with site.Params.subtitle }}<span class="brand-sub">{{ . }}</span>{{ end }}
+  </a>
+  <nav>
+    {{ range site.Menus.main }}
+      <a href="{{ .URL }}"{{ if eq $.RelPermalink .URL }} aria-current="page"{{ end }}>{{ .Name }}</a>
+    {{ end }}
+  </nav>
+</header>

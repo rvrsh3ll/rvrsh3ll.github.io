@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="{{ or site.Language.Locale `en` }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if .IsHome }}{{ site.Title }}{{ with site.Params.subtitle }} — {{ . }}{{ end }}{{ else }}{{ .Title }} — {{ site.Title }}{{ end }}</title>
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
+  {{ with .Params.canonicalURL }}<link rel="canonical" href="{{ . }}">{{ else }}<link rel="canonical" href="{{ .Permalink }}">{{ end }}
+  <link rel="alternate" type="application/rss+xml" title="{{ site.Title }}" href="{{ `index.xml` | absURL }}">
+  <link rel="stylesheet" href="{{ `css/main.css` | relURL }}">
+</head>
+<body>
+  <div class="page">
+    {{ partial "header.html" . }}
+    <main>
+      {{ block "main" . }}{{ end }}
+    </main>
+    {{ partial "footer.html" . }}
+  </div>
+</body>
+</html>

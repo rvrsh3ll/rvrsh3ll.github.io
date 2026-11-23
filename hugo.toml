@@ -1,0 +1,43 @@
+baseURL = 'https://rvrsh3ll.github.io/'
+locale = 'en-US'
+title = 'rvrsh3ll'
+enableRobotsTXT = true
+summaryLength = 36
+canonifyURLs = false
+
+[pagination]
+  pagerSize = 50
+
+[params]
+  author = 'Steve Borosh'
+  subtitle = 'a security odyssey'
+  description = 'Writings on offensive security, infrastructure, and research by Steve Borosh.'
+
+[markup.goldmark.renderer]
+  unsafe = true
+  hardWraps = false
+
+[markup.goldmark.parser.attribute]
+  block = true
+
+[outputs]
+  home = ['HTML', 'RSS']
+  section = ['HTML', 'RSS']
+
+[taxonomies]
+  tag = 'tags'
+
+[[menus.main]]
+  name = 'Posts'
+  url = '/'
+  weight = 10
+
+[[menus.main]]
+  name = 'Elsewhere'
+  url = '/elsewhere/'
+  weight = 20
+
+[[menus.main]]
+  name = 'RSS'
+  url = '/index.xml'
+  weight = 30

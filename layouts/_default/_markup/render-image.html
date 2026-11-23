@@ -1,0 +1,8 @@
+{{- $src := .Destination -}}
+{{- $alt := .Text -}}
+{{- if not (or (urls.Parse $src).Scheme (hasPrefix $src "/") (hasPrefix $src "//")) -}}
+  {{- with .Page.Resources.GetMatch $src -}}
+    {{- $src = .RelPermalink -}}
+  {{- end -}}
+{{- end -}}
+<img src="{{ $src | safeURL }}" alt="{{ $alt }}" loading="lazy">

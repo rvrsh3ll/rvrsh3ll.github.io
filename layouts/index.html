@@ -1,0 +1,14 @@
+{{ define "main" }}
+<section class="intro">
+  {{ .Content }}
+</section>
+<ol class="post-list">
+  {{ range where site.RegularPages "Section" "blog" }}
+  <li>
+    <time datetime="{{ .Date.Format `2006-01-02` }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+  </li>
+  {{ end }}
+</ol>
+<p class="elsewhere-note">Looking for other writing? See <a href="{{ `/elsewhere/` | relURL }}">Elsewhere</a>.</p>
+{{ end }}
